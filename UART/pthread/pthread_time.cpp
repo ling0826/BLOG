@@ -14,7 +14,7 @@ void pthread_time::Mywork()
 
      qDebug()<<"******1s ";
      timer = new QTimer();
-         connect(timer,SIGNAL(timeout()),this,SLOT(timer_1s()),Qt::DirectConnection);
+     connect(timer,SIGNAL(timeout()),this,SLOT(timer_1s()),Qt::DirectConnection);
      timer->start(1500);
 
 
@@ -24,8 +24,8 @@ void pthread_time::Mywork()
            QThread::sleep(1);
            
 
-           /*emit signal_back();    //发送返回信号
-           qDebug() << "the child thread number:" << QThread::currentThread();*/
+           emit signal_back();    //发送返回信号
+           qDebug() << "the child thread number:" << QThread::currentThread();
        }
 
 }
@@ -34,7 +34,7 @@ void pthread_time::timer_1s()
 {
 qDebug()<<"+++1s**** ";
     timer->start(1000);
-    time = time.addSecs(1);
+    time_data = time_data.addSecs(1);
     emit signal_1s();
     //ui->dateTimeEdit_2->setDateTime(time);
 }

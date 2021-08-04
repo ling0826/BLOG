@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QThread>
 #include <QMessageBox>
+#include <QDateTime>
 
 #include <QDesktopServices>
 #include <QUrl>
@@ -14,6 +15,7 @@
 
 int firstIndex = 0;
 extern QTimer *timer;
+//QDateTime time;
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -87,7 +89,7 @@ MainWindow::MainWindow(QWidget *parent) :
            firstIndex=ui->stackedWidget->currentIndex();
            qDebug()<<"firstIndex:"<<firstIndex;
 */
-    time = QDateTime::currentDateTime();
+   // time_t = QDateTime::currentDateTime();
 
     subthread->start();
     subthread_1->start();

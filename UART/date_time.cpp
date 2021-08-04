@@ -4,7 +4,7 @@
 #include "pthread/pthread_time.h"
 
 
-QDateTime time;
+QDateTime time_data;
 
 Date_Time::Date_Time(QWidget *parent) :
     QWidget(parent),
@@ -39,18 +39,18 @@ void Date_Time::on_Set_datatime_clicked()
 //时间校验
 void Date_Time::on_datetime_check_clicked()
 {
-    time = QDateTime::currentDateTime();
-    ui->dateTimeEdit_2->setDateTime(time);
-    ui->lcdNumber_h->display(time.time().hour());
-    ui->lcdNumber_m->display(time.time().minute());
-    ui->lcdNumber_s->display(time.time().second());
+    time_data = QDateTime::currentDateTime();
+    ui->dateTimeEdit_2->setDateTime(time_data);
+    ui->lcdNumber_h->display(time_data.time().hour());
+    ui->lcdNumber_m->display(time_data.time().minute());
+    ui->lcdNumber_s->display(time_data.time().second());
 }
 //时间显示
 void Date_Time::time_1s_show()
 {
     qDebug()<<"time_1s_show";
-    ui->dateTimeEdit_2->setDateTime(time);
-    ui->lcdNumber_h->display(time.time().hour());
-    ui->lcdNumber_m->display(time.time().minute());
-    ui->lcdNumber_s->display(time.time().second());
+    ui->dateTimeEdit_2->setDateTime(time_data);
+    ui->lcdNumber_h->display(time_data.time().hour());
+    ui->lcdNumber_m->display(time_data.time().minute());
+    ui->lcdNumber_s->display(time_data.time().second());
 }
